@@ -24,3 +24,8 @@ ng add @angular/fire
 
 ng g m clientes --route clientes --module app.module
 
+
+================ NPM ===============
+
+ngx-pagination: npm i ngx-pagination
+
