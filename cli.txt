@@ -22,10 +22,12 @@ ng add @angular/fire
 
 ================ GENERATE ===============
 
-ng g m clientes --route clientes --module app.module
+//ng g m clientes --route clientes --module app.module
 
 
 ================ NPM ===============
 
-ngx-pagination: npm i ngx-pagination
+ngx-pagination: 
+
+npm i ngx-pagination --save
 
