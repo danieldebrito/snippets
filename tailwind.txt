@@ -1,0 +1,30 @@
+ng new my-project
+cd my-project
+
+Instalar Tailwind CSS : 
+
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+
+Configura las rutas de los templates
+Agregar las rutas de tus templates en el archivo tailwind.config.js : 
+
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{html,ts}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+Agrega el decorador de Tailwind a tu Css :
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+

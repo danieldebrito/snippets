@@ -1,0 +1,77 @@
+tsconfig.json : 
+
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "useDefineForClassFields": false,
+    "lib": [
+      "ES2022",
+      "dom"
+    ]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": false
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+package.json : 
+
+
+    "firebase": "^9.23.0",
+	
+	
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+In node_modules>rxfire>firestore>lite>interface.d.ts
+
+I changed
+
+export type CountSnapshot = lite.AggregateQuerySnapshot<{
+    count: lite.AggregateField<number>;
+}, any, DocumentData>;
+
+
+to
+
+export type CountSnapshot = lite.AggregateQuerySnapshot<{
+    count: lite.AggregateField<number>;
+}>;
+
+
+
+
+//////////////////////////
+
+Error: NullInjectionError
+
+Solución: Agregar al AppModule en la partde de providers:
+
+providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
+
+También realizar arriba en el mismo archivo el siguiente import:
+
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';

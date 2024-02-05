@@ -1,7 +1,11 @@
-================ INIT ===============
-npm install font-awesome bootstrap jquery @popperjs/core --save
+npm uninstall -g @angular/cli
+npm cache clean
 
-ng add @angular/material
+
+
+================ INITial setup ===============
+npm install font-awesome bootstrap jquery @popperjs/core ngx-pagination --save
+
 
 "styles": [
   "node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -14,6 +18,10 @@ ng add @angular/material
   "node_modules/bootstrap/dist/js/bootstrap.min.js"
 ]
 			
+			optional
+			
+			ng add @angular/material
+
 ================ firebase ===============
 
 npm install -g firebase-tools
@@ -31,3 +39,4 @@ ngx-pagination:
 
 npm i ngx-pagination --save
 
+ng g m pages/client/nosotros --route nosotros --module app.module
