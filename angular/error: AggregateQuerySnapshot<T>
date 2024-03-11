@@ -1,0 +1,9 @@
+export type CountSnapshot = lite.AggregateQuerySnapshot<{ count: lite.AggregateField<number>;
+  }, any, DocumentData>;
+
+
+to
+
+
+export type CountSnapshot = lite.AggregateQuerySnapshot<{ count: lite.AggregateField<number>;
+}>;
