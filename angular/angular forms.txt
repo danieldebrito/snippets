@@ -1,0 +1,193 @@
+================ FORMS ===============
+en el module
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+    FormsModule,
+    ReactiveFormsModule
+
+
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+
+
+
+
+
+  createForm = new FormGroup({
+    //uid: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    //id: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    //emailVerified: new FormControl('', [Validators.required, Validators.minLength(6)]),
+
+    email: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    displayName: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    photoURL: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    nombre: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    apellido: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    sexo: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    dni: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    edad: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    fechaNacimiento: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    foto: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    role: new FormControl('', [Validators.required, Validators.minLength(6)]),
+    habilitado: new FormControl('', [Validators.required, Validators.minLength(6)])
+  });
+
+  constructor(private authService: AuthService, private usuariosService: UsuariosService) { }
+  
+    public createUser() {
+    if (this.createForm.valid) {
+
+      const habilitadoValue = this.createForm.value.habilitado === 'true' ? true : false;
+
+      const newItem: Usuario = {
+        //id: this.createForm.value.id ?? '',
+        //emailVerified: this.createForm.value.emailVerified ?? '',
+
+        email: this.createForm.value.email ?? '',
+        password: this.createForm.value.password ?? '',
+        displayName: this.createForm.value.displayName ?? '',
+        photoURL: this.createForm.value.photoURL ?? '',
+        nombre: this.createForm.value.nombre ?? '',
+        apellido: this.createForm.value.apellido ?? '',
+        sexo: this.createForm.value.sexo ?? '',
+        dni: this.createForm.value.dni ?? '',
+        edad: this.createForm.value.edad ?? '',
+        fechaNacimiento: this.createForm.value.fechaNacimiento ?? '',
+        foto: this.createForm.value.foto ?? '',
+        role: this.createForm.value.role ?? '',
+        habilitado: habilitadoValue,
+      };
+
+      // this.createUserAuth(newItem);
+      this.authService.SignUp(newItem);
+
+
+      console.log(newItem);
+      //this.usuariosService.addItem(newItem);
+    } else {
+      console.log("El formulario no es válido, realiza alguna acción o muestra un mensaje de error.");
+      // El formulario no es válido, realiza alguna acción o muestra un mensaje de error.
+    }
+  }
+  
+  
+          <form [formGroup]="createForm" (ngSubmit)="createUser()">
+
+          <!-- Campo Email -->
+          <div class="form-outline">
+            <label class="form-label"  class="form-label" for="email">Email:</label>
+            <input class="form-control" type="email" id="email" formControlName="email" required minlength="6">
+            <div class="red" *ngIf="createForm.get('email')?.touched && createForm.get('email')?.errors?.['required']">El campo Email es requerido.</div>
+            <div class="red" *ngIf="createForm.get('email')?.touched && createForm.get('email')?.errors?.['minlength']">El campo Email debe tener al menos 6 caracteres.
+            </div>
+          </div>
+
+          <!-- Campo Password -->
+          <div>
+            <label class="form-label"  for="password">Password:</label>
+            <input class="form-control" type="password" id="password" formControlName="password" required minlength="6">
+            <div class="red" *ngIf="createForm.get('password')?.touched && createForm.get('password')?.errors?.['required']">El campo Password es requerido.</div>
+            <div class="red" *ngIf="createForm.get('password')?.touched && createForm.get('password')?.errors?.['minlength']">El campo Password debe tener al menos 6
+              caracteres.</div>
+          </div>
+
+          <!-- Campo DisplayName -->
+          <div>
+            <label class="form-label"  for="displayName">Display Name:</label>
+            <input class="form-control" type="text" id="displayName" formControlName="displayName" required minlength="6">
+            <div class="red" *ngIf="createForm.get('displayName')?.touched && createForm.get('displayName')?.errors?.['required']">El campo Display Name es requerido.</div>
+            <div class="red" *ngIf="createForm.get('displayName')?.touched && createForm.get('displayName')?.errors?.['minlength']">El campo Display Name debe tener al menos
+              6 caracteres.</div>
+          </div>
+
+          <!-- Campo photoURL -->
+          <div>
+            <label class="form-label"  for="photoURL">Photo URL:</label>
+            <input class="form-control" type="text" id="photoURL" formControlName="photoURL" required minlength="6">
+            <div *ngIf=" createForm.get('photoURL')?.touched && createForm.get('photoURL')?.errors?.['required']">El campo Photo URL es requerido.</div>
+            <div *ngIf=" createForm.get('photoURL')?.touched && createForm.get('photoURL')?.errors?.['minlength']">El campo Photo URL debe tener al menos 6
+              caracteres.</div>
+          </div>
+
+          <!-- Campo nombre -->
+          <div>
+            <label class="form-label"  for="nombre">Nombre:</label>
+            <input class="form-control" type="text" id="nombre" formControlName="nombre" required minlength="6">
+            <div *ngIf=" createForm.get('nombre')?.touched && createForm.get('nombre')?.errors?.['required']">El campo Nombre es requerido.</div>
+            <div *ngIf=" createForm.get('nombre')?.touched && createForm.get('nombre')?.errors?.['minlength']">El campo Nombre debe tener al menos 6
+              caracteres.</div>
+          </div>
+
+          <!-- Campo apellido -->
+          <div>
+            <label class="form-label"  for="apellido">Apellido:</label>
+            <input class="form-control" type="text" id="apellido" formControlName="apellido" required minlength="6">
+            <div *ngIf=" createForm.get('apellido')?.touched && createForm.get('apellido')?.errors?.['required']">El campo Apellido es requerido.</div>
+            <div *ngIf=" createForm.get('apellido')?.touched && createForm.get('apellido')?.errors?.['minlength']">El campo Apellido debe tener al menos 6
+              caracteres.</div>
+          </div>
+
+          <!-- Campo sexo -->
+          <div>
+            <label class="form-label"  for="sexo">Sexo:</label>
+            <input class="form-control" type="text" id="sexo" formControlName="sexo" required minlength="6">
+            <div *ngIf=" createForm.get('sexo')?.touched && createForm.get('sexo')?.errors?.['required']">El campo Sexo es requerido.</div>
+            <div *ngIf=" createForm.get('sexo')?.touched && createForm.get('sexo')?.errors?.['minlength']">El campo Sexo debe tener al menos 6 caracteres.
+            </div>
+          </div>
+
+          <!-- Campo dni -->
+          <div>
+            <label class="form-label"  for="dni">DNI:</label>
+            <input class="form-control" type="text" id="dni" formControlName="dni" required minlength="6">
+            <div *ngIf=" createForm.get('dni')?.touched && createForm.get('dni')?.errors?.['required']">El campo DNI es requerido.</div>
+            <div *ngIf=" createForm.get('dni')?.touched && createForm.get('dni')?.errors?.['minlength']">El campo DNI debe tener al menos 6 caracteres.
+            </div>
+          </div>
+
+          <!-- Campo edad -->
+          <div>
+            <label class="form-label"  for="edad">Edad:</label>
+            <input class="form-control" type="number" id="edad" formControlName="edad" required min="18">
+            <div *ngIf=" createForm.get('edad')?.touched && createForm.get('edad')?.errors?.['required']">El campo Edad es requerido.</div>
+            <div *ngIf=" createForm.get('edad')?.touched && createForm.get('edad')?.errors?.['minlength']">La edad mínima permitida es 18 años.</div>
+          </div>
+
+          <!-- Campo fechaNacimiento -->
+          <div>
+            <label class="form-label"  for="fechaNacimiento">Fecha de Nacimiento:</label>
+            <input class="form-control" type="date" id="fechaNacimiento" formControlName="fechaNacimiento" required>
+            <div *ngIf=" createForm.get('fechaNacimiento')?.touched && createForm.get('fechaNacimiento')?.errors?.['required']">El campo Fecha de Nacimiento es
+              requerido.</div>
+          </div>
+
+          <!-- Campo foto -->
+          <div>
+            <label class="form-label"  for="foto">Foto:</label>
+            <input class="form-control" type="text" id="foto" formControlName="foto" required minlength="6">
+            <div *ngIf=" createForm.get('foto')?.touched && createForm.get('foto')?.errors?.['required']">El campo Foto es requerido.</div>
+            <div *ngIf=" createForm.get('foto')?.touched && createForm.get('foto')?.errors?.['minlength']">El campo Foto debe tener al menos 6 caracteres.
+            </div>
+          </div>
+
+          <!-- Campo role -->
+          <div>
+            <label class="form-label"  for="role">Role:</label>
+            <input class="form-control" type="text" id="role" formControlName="role" required minlength="6">
+            <div *ngIf=" createForm.get('role')?.touched && createForm.get('role')?.errors?.['required']">El campo Role es requerido.</div>
+            <div *ngIf=" createForm.get('role')?.touched && createForm.get('role')?.errors?.['minlength']">El campo Role debe tener al menos 6 caracteres.
+            </div>
+          </div>
+
+          <!-- Campo habilitado -->
+          <div>
+            <label class="form-label"  for="habilitado">Habilitado:</label>
+            <input type="checkbox" id="habilitado" formControlName="habilitado" required>
+            <div *ngIf=" createForm.get('habilitado')?.touched && createForm.get('habilitado')?.errors?.['required']">El campo Habilitado es requerido.</div>
+          </div>
+
+
+          <button type="submit" class="btn btn-primary" [disabled]="!createForm.valid">Crear Usuario</button>
+        </form>

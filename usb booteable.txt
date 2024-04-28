@@ -1,0 +1,14 @@
+1. diskpart
+
+2. list disk
+
+seleccionar tu ubs( tienes que poner el numero que corresponde a tu usb..o sd , puedes identificarla, sabiendo de cuanto GB es tu memoria USB) 
+
+3. select disk 2 
+4. clean
+5. create partition primary
+6. select partition 1
+7. active
+8. format fs=fat32 quick        (esperamos que se formatee)  (siaparece una ventana, la cierras)
+9. assign         (si aparece una ventana la cierras)
+10. exit

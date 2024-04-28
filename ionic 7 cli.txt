@@ -1,0 +1,88 @@
+
+ionic 5 custom splash screen (animated) | In just 5 minutes
+https://www.youtube.com/watch?v=nQL4MDlsYJk
+
+Problema de la Pantalla Blanca | Ionic Capacitor
+https://www.youtube.com/watch?v=7jkfeyllRiA
+
+Improving Your Ionic Splash Screen with Animations
+https://www.youtube.com/watch?v=-c0htV-kfm8
+
+
+Add your icon.png (1024x1024 px) and splash.png (2732x2732 px) files to the '1' folder under the root of your capacitor based project.
+
+ionic start photo-gallery tabs --type=angular --capacitor
+
+
+npm install capacitor-resources -g
+capacitor-resources
+
+ionic build
+ionic cap add ios
+ionic cap add android
+ionic cap copy
+ionic cap sync
+npx capacitor-assets generate
+ionic cap open android
+
+
+cordova < = > capacitor
+
+ionic integrations disable capacitor
+ionic cordova prepare
+
+<> 
+
+ionic integrations enable capacitor
+
+
+$ ionic integrations enable [name] [options]
+
+
+----------------------------------------------
+
+firebase
+
+ng add @angular/fire  -> seleccionar lo que queremos y el login user de firebase
+
+elmain.ts quedara asi con las impirtaciones, se hacen aqui ya que no tenemos module.
+
+import { enableProdMode, importProvidersFrom } from '@angular/core';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { RouteReuseStrategy, provideRouter } from '@angular/router';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+
+import { routes } from './app/app.routes';
+import { AppComponent } from './app/app.component';
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
+
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app'
+import { getFirestore, provideFirestore } from '@angular/fire/firestore'
+import { environment } from './environments/environment'; 
+
+// Call the element loader after the platform has been bootstrapped
+defineCustomElements(window);
+
+if (environment.production) {
+  enableProdMode();
+}
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    importProvidersFrom(
+      IonicModule.forRoot({}),
+      provideFirebaseApp( () => initializeApp(environment.firebase)),
+      provideFirestore( () => getFirestore() )
+      ),
+    provideRouter(routes),
+  ],
+});
+
+----------------------------------------------
+
+
+
+
+
+
