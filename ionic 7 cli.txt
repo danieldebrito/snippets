@@ -20,6 +20,7 @@ capacitor-resources
 ionic build
 ionic cap add ios
 ionic cap add android
+-------------------------------
 ionic cap copy
 ionic cap sync
 npx capacitor-assets generate
