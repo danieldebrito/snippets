@@ -43,6 +43,11 @@ $ ionic integrations enable [name] [options]
 
 ----------------------------------------------
 
+update changes
+ionic build && ionic cap copy && ionic cap sync && ionic cap open android
+
+
+--------------------------------------------------------------------
 firebase
 
 ng add @angular/fire  -> seleccionar lo que queremos y el login user de firebase

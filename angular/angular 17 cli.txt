@@ -42,3 +42,18 @@ ngx-pagination:
 npm i ngx-pagination --save
 
 ng g m pages/client/nosotros --route nosotros --module app.module
+
+
+================ deploy ===============
+
+npm install -g firebase-tools
+firebase init hosting
+ng build
+firebase deploy --only hosting
+
+“angular.json”. -> “outputPath” y copiamos
+
+abrimos el archivo “firebase.json”, y en “public” pegamos reemplazo
+package.json y lo abrimos. Dentro de “scripts” escribimos: "deploy": "ng build && firebase deploy --only hosting"
+
+npm run deploy
