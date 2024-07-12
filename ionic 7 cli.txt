@@ -9,7 +9,13 @@ Improving Your Ionic Splash Screen with Animations
 https://www.youtube.com/watch?v=-c0htV-kfm8
 
 
-Add your icon.png (1024x1024 px) and splash.png (2732x2732 px) files to the '1' folder under the root of your capacitor based project.
+Add your icon.png (1024x1024 px) and splash.png (2732x2732 px) files to the '1' 
+folder under the root of your capacitor based project.
+
+
+En capacitor.config agarrá el appId, buscá todas las veces que aparezca en el proyecto y cambialo
+
+
 
 ionic start photo-gallery tabs --type=angular --capacitor
 ionic start idioma blank --type=angular --capacitor
