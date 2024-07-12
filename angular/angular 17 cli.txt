@@ -4,6 +4,7 @@
 npm uninstall -g @angular/cli
 
 npm cache clean
+npm install -g @angular/cli
 
 ================ nuevo proyecto ============================================================================================
 
@@ -71,5 +72,3 @@ abrimos el archivo “firebase.json”, y en “public” pegamos reemplazo
 package.json y lo abrimos. Dentro de “scripts” escribimos: "deploy": "ng build && firebase deploy --only hosting"
 
 npm run deploy
-
-=================================================================================================================================
