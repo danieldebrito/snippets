@@ -44,15 +44,61 @@ npx capacitor-assets generate
 ionic cap open android
 
 ----------------------------
-recompilando ....... <<<<<<<<<<<<<<<<
-ionic cap copy
-ionic cap sync
-ionic cap open android
-<z<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>
+recompilando - update changes ....... <<<<<<<<<<<<<<<<
+
+ionic build && ionic cap copy && ionic cap sync && ionic cap open android
+<z<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>
+
+npm install @capacitor/splash-screen
+npx cap sync
+
+
+import type { CapacitorConfig } from '@capacitor/cli';
+
+const config: CapacitorConfig = {
+  appId: 'io.ionic.Idioma',
+  appName: 'Idioma',
+  webDir: 'www',
+  plugins: {
+    SplashScreen: {
+      launchShowDuration: 3000, // Set to 0 to hide the splash screen
+      launchAutoHide: true, // Automatically hide the splash screen
+      launchFadeOutDuration: 3000
+    },
+  },
+};
+
+export default config;
+
+<z<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>
+
+
+import type { CapacitorConfig } from '@capacitor/cli';
+
+const config: CapacitorConfig = {
+  appId: 'io.ionic.releva',
+  appName: 'RelevamientoVisual',
+  bundledWebRuntime: false,
+  webDir: 'www',
+  plugins: {
+    SplashScreen: {
+      launchShowDuration: 3000, // Set to 0 to hide the splash screen
+      launchAutoHide: true, // Automatically hide the splash screen
+      launchFadeOutDuration: 3000
+    },
+  },
+};
+
+<z<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>
+
+
+
+export default config;
+
+
+
 
 npm install @capacitor/camera
-
-
 
 
 cordova < = > capacitor
@@ -68,14 +114,10 @@ ionic integrations enable capacitor
 $ ionic integrations enable [name] [options]
 
 
-----------------------------------------------
-
-update changes
-ionic build && ionic cap copy && ionic cap sync && ionic cap open android
 
 
---------------------------------------------------------------------
 
+chrome://inspect/#devices
 
 
 

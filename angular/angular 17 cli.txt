@@ -6,10 +6,22 @@ npm uninstall -g @angular/cli
 npm cache clean
 npm install -g @angular/cli
 
+-------------------
+
+otra forma
+
+rm -rf node_modules
+npm uninstall --save-dev @angular/cli
+npm install --save-dev @angular/cli@latest
+npm install
+
 ================ nuevo proyecto ============================================================================================
 
 
 ng new  nombre --no-standalone
+
+
+clear && ng serve -o
 
 
 ================ INITial setup ============================================================================================
