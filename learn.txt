@@ -1,2 +1,8 @@
 RXJS y Redux (NGXS).
 docker
+
+¿Qué más puedes aprender para seguir avanzando?
+Optimización y escalabilidad: Profundizar en el rendimiento de las consultas SQL y mejorar la eficiencia de las API.
+Pruebas (testing): Añadir pruebas unitarias y pruebas de integración en tu flujo de trabajo para asegurar la calidad del código en cada capa.
+DevOps: Si aún no lo has hecho, aprender sobre automatización de despliegue y herramientas de CI/CD puede llevarte al siguiente nivel como desarrollador completo.
+¡Sigue así, vas por muy buen camino!
